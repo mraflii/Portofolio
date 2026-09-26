@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 md:py-32 px-4 md:px-6 relative">
       <div className="max-w-4xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -20,8 +20,8 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-          <motion.a 
-            href="mailto:email@example.com"
+          <motion.a
+            href="mailto:mhdrafli0710@gmail.com"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -32,12 +32,12 @@ const Contact = () => {
             </div>
             <div>
               <p className="text-xs md:text-sm font-bold tracking-wider text-gray-500 uppercase mb-1">Email</p>
-              <p className="text-base md:text-lg font-bold text-white break-all">email@example.com</p>
+              <p className="text-base md:text-lg font-bold text-white break-all">mhdrafli0710@gmail.com</p>
             </div>
           </motion.a>
 
-          <motion.a 
-            href="https://github.com/username" target="_blank" rel="noopener noreferrer"
+          <motion.a
+            href="https://github.com/mraflii" target="_blank" rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -49,12 +49,12 @@ const Contact = () => {
             </div>
             <div>
               <p className="text-xs md:text-sm font-bold tracking-wider text-gray-500 uppercase mb-1">GitHub</p>
-              <p className="text-base md:text-lg font-bold text-white">github.com/username</p>
+              <p className="text-base md:text-lg font-bold text-white">https://github.com/mraflii</p>
             </div>
           </motion.a>
 
-          <motion.a 
-            href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer"
+          <motion.a
+            href="https://www.linkedin.com/in/muhammad-rafli-97698a362/" target="_blank" rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -66,11 +66,11 @@ const Contact = () => {
             </div>
             <div>
               <p className="text-xs md:text-sm font-bold tracking-wider text-gray-500 uppercase mb-1">LinkedIn</p>
-              <p className="text-base md:text-lg font-bold text-white">linkedin.com/in/username</p>
+              <p className="text-base md:text-lg font-bold text-white">https://www.linkedin.com/in/muhammad-rafli-97698a362/</p>
             </div>
           </motion.a>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
