@@ -7,6 +7,11 @@
 
 body {
   background-color: #050505;
+  background-image: 
+    radial-gradient(circle at top center, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+  background-attachment: fixed;
   color: #f8fafc;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;

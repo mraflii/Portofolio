@@ -8,7 +8,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -23,46 +23,77 @@ const Navbar = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-neutral-950/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-          Portofolio.
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/90 backdrop-blur-md border-b border-neutral-900 py-4' : 'bg-transparent py-6'}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        <a href="#" className="text-xl font-bold tracking-tight text-white">
+          rafli<span className="text-neutral-600">.portofolio</span>
         </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-gray-300 hover:text-white hover:scale-105 transition-all text-sm font-semibold tracking-wide">
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.href);
+                if (target) {
+                  const navbarHeight = 80;
+                  const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                  window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
+              className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide"
+            >
               {link.name}
             </a>
           ))}
         </nav>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-gray-300 p-2 -mr-2 focus:outline-none" 
+        <button
+          className="md:hidden text-neutral-400 hover:text-white p-2 -mr-2 transition-colors focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden absolute top-full left-0 w-full bg-neutral-950/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden absolute top-full left-0 w-full bg-[#050505] border-b border-neutral-900"
           >
-            <div className="flex flex-col px-6 py-8 gap-6">
+            <div className="flex flex-col px-6 py-4 gap-4">
               {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  onClick={() => setIsOpen(false)}
-                  className="text-gray-300 hover:text-white transition-colors text-xl font-bold tracking-wide border-b border-white/5 pb-4"
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+
+                    setTimeout(() => {
+                      const target = document.querySelector(link.href);
+                      if (target) {
+                        const navbarHeight = 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                        window.scrollTo({
+                          top: targetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }, 150);
+                  }}
+                  className="text-neutral-400 hover:text-white transition-colors text-base font-medium border-b border-neutral-900 pb-4 last:border-0"
                 >
                   {link.name}
                 </a>

@@ -4,53 +4,62 @@ import {
   SiTailwindcss, 
   SiPhp, 
   SiMysql, 
-  SiPython, 
-  SiQgis 
+  SiPython,
+  SiQgis
 } from 'react-icons/si';
+import { FaMicrosoft, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from 'react-icons/fa';
+import { Lightbulb, Users, Palette } from 'lucide-react';
 
 const Skills = () => {
   const skills = [
-    { name: 'React', icon: SiReact, color: 'text-[#61DAFB]', shadow: 'group-hover:shadow-[0_0_25px_rgba(97,218,251,0.4)]' },
-    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38B2AC]', shadow: 'group-hover:shadow-[0_0_25px_rgba(56,178,172,0.4)]' },
-    { name: 'PHP', icon: SiPhp, color: 'text-[#777BB4]', shadow: 'group-hover:shadow-[0_0_25px_rgba(119,123,180,0.4)]' },
-    { name: 'MySQL', icon: SiMysql, color: 'text-[#4479A1]', shadow: 'group-hover:shadow-[0_0_25px_rgba(68,121,161,0.4)]' },
-    { name: 'Python', icon: SiPython, color: 'text-[#3776AB]', shadow: 'group-hover:shadow-[0_0_25px_rgba(55,118,171,0.4)]' },
-    { name: 'QGIS', icon: SiQgis, color: 'text-[#589632]', shadow: 'group-hover:shadow-[0_0_25px_rgba(88,150,50,0.4)]' },
+    { name: 'React', icon: SiReact, color: 'text-[#61DAFB]' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38B2AC]' },
+    { name: 'PHP', icon: SiPhp, color: 'text-[#777BB4]' },
+    { name: 'MySQL', icon: SiMysql, color: 'text-[#4479A1]' },
+    { name: 'Python', icon: SiPython, color: 'text-[#3776AB]' },
+    { name: 'Node.js', icon: FaNodeJs, color: 'text-[#339933]' },
+    { name: 'HTML', icon: FaHtml5, color: 'text-[#E34F26]' },
+    { name: 'CSS', icon: FaCss3Alt, color: 'text-[#1572B6]' },
+    { name: 'JavaScript', icon: FaJs, color: 'text-[#F7DF1E]' },
+    { name: 'Git', icon: FaGitAlt, color: 'text-[#F05032]' },
+    { name: 'GitHub', icon: FaGithub, color: 'text-white' },
+    { name: 'QGIS', icon: SiQgis, color: 'text-[#589632]' },
+    { name: 'Figma', icon: FaFigma, color: 'text-[#F24E1E]' },
+    { name: 'Canva', icon: Palette, color: 'text-[#00C4CC]' },
+    { name: 'Microsoft Office', icon: FaMicrosoft, color: 'text-[#00A4EF]' },
+    { name: 'Problem Solving', icon: Lightbulb, color: 'text-amber-400' },
+    { name: 'Teamwork', icon: Users, color: 'text-blue-400' },
   ];
 
   return (
-    <section id="skills" className="py-20 md:py-32 px-4 md:px-6 relative bg-neutral-950/50">
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-12 px-6 md:px-12 relative max-w-7xl mx-auto w-full">
+      <div className="w-full border-t border-neutral-900 pt-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-20"
+          className="mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 md:mb-6 text-white tracking-tight">Keahlian</h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base md:text-lg px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Keahlian</h2>
+          <p className="mt-4 text-neutral-400 max-w-2xl text-base">
             Teknologi dan alat yang sering saya gunakan dalam pengembangan perangkat lunak.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-neutral-900 border border-white/5 hover:border-white/20 hover:-translate-y-2 transition-all duration-300 group ${skill.shadow}`}
+              transition={{ delay: index * 0.05 }}
+              className="flex flex-col items-center justify-center p-6 bg-[#050505] border border-neutral-900 hover:border-neutral-700 transition-colors group"
             >
-              <div className="mb-4 transform group-hover:scale-110 transition-all duration-300">
-                <skill.icon className={`text-5xl md:text-6xl ${skill.color} drop-shadow-md`} />
+              <div className={`mb-4 transition-transform group-hover:scale-110 duration-300 ${skill.color}`}>
+                <skill.icon className="text-4xl" />
               </div>
-              <h3 className="font-semibold text-white/90 text-sm md:text-base text-center">{skill.name}</h3>
+              <h3 className="font-medium text-neutral-300 text-sm text-center">{skill.name}</h3>
             </motion.div>
           ))}
         </div>
