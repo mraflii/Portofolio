@@ -4,6 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 
 import spkImage from '../assets/spk_blankspot.png';
 import pemetaanImage from '../assets/pemetaan_blankspot.png';
+import bookingFutsalImage from '../assets/bookingfutsal.png';
 
 const Projects = () => {
   const projects = [
@@ -31,7 +32,7 @@ const Projects = () => {
       title: 'Aplikasi Booking Futsal',
       description: 'Aplikasi berbasis web untuk memudahkan pengguna dalam melakukan pemesanan lapangan futsal. Dilengkapi dengan antarmuka yang responsif dan memudahkan pengelolaan ketersediaan lapangan.',
       tags: ['Next.js', 'React', 'Tailwind CSS'],
-      image: null,
+      image: bookingFutsalImage,
       icon: Calendar,
       featured: false,
       github: 'https://github.com/mraflii/BookingFutsal',
