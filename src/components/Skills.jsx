@@ -11,7 +11,7 @@ import { FaMicrosoft, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, Fa
 import { Lightbulb, Users, Palette } from 'lucide-react';
 
 const Skills = () => {
-  const skills = [
+  const hardSkills = [
     { name: 'React', icon: SiReact, color: 'text-[#61DAFB]' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38B2AC]' },
     { name: 'PHP', icon: SiPhp, color: 'text-[#777BB4]' },
@@ -27,9 +27,27 @@ const Skills = () => {
     { name: 'Figma', icon: FaFigma, color: 'text-[#F24E1E]' },
     { name: 'Canva', icon: Palette, color: 'text-[#00C4CC]' },
     { name: 'Microsoft Office', icon: FaMicrosoft, color: 'text-[#00A4EF]' },
+  ];
+
+  const softSkills = [
     { name: 'Problem Solving', icon: Lightbulb, color: 'text-amber-400' },
     { name: 'Teamwork', icon: Users, color: 'text-blue-400' },
   ];
+
+  const SkillCard = ({ skill, index }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.05 }}
+      className="flex flex-col items-center justify-center p-6 bg-[#050505] border border-neutral-900 hover:border-neutral-700 transition-colors group"
+    >
+      <div className={`mb-4 transition-transform group-hover:scale-110 duration-300 ${skill.color}`}>
+        <skill.icon className="text-4xl" />
+      </div>
+      <h3 className="font-medium text-neutral-300 text-sm text-center">{skill.name}</h3>
+    </motion.div>
+  );
 
   return (
     <section id="skills" className="py-12 px-6 md:px-12 relative max-w-7xl mx-auto w-full">
@@ -42,26 +60,36 @@ const Skills = () => {
         >
           <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Keahlian</h2>
           <p className="mt-4 text-neutral-400 max-w-2xl text-base">
-            Teknologi dan alat yang sering saya gunakan dalam pengembangan perangkat lunak.
+            Teknologi dan alat yang sering saya gunakan dalam pengembangan perangkat lunak, serta kemampuan interpersonal yang saya miliki.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="flex flex-col items-center justify-center p-6 bg-[#050505] border border-neutral-900 hover:border-neutral-700 transition-colors group"
-            >
-              <div className={`mb-4 transition-transform group-hover:scale-110 duration-300 ${skill.color}`}>
-                <skill.icon className="text-4xl" />
-              </div>
-              <h3 className="font-medium text-neutral-300 text-sm text-center">{skill.name}</h3>
-            </motion.div>
-          ))}
+        <div className="space-y-12">
+          {/* Hard Skills */}
+          <div>
+            <h3 className="text-xl font-medium text-neutral-200 mb-6 flex items-center gap-2">
+              <span className="h-1 w-6 bg-white/20 rounded-full"></span>
+              Hard Skills
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              {hardSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Soft Skills */}
+          <div>
+            <h3 className="text-xl font-medium text-neutral-200 mb-6 flex items-center gap-2">
+              <span className="h-1 w-6 bg-white/20 rounded-full"></span>
+              Soft Skills
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              {softSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

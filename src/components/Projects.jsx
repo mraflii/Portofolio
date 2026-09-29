@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Map } from 'lucide-react';
+import { ExternalLink, Map, Calendar } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 import spkImage from '../assets/spk_blankspot.png';
@@ -25,6 +25,16 @@ const Projects = () => {
       icon: Map,
       featured: false,
       github: 'https://github.com/mraflii/Pemetaan-Lokasi-Blankspot-di-Sektor-Pendidikan-dan-Kesehatan-Wilayah-Aceh',
+      demo: '#'
+    },
+    {
+      title: 'Aplikasi Booking Futsal',
+      description: 'Aplikasi berbasis web untuk memudahkan pengguna dalam melakukan pemesanan lapangan futsal. Dilengkapi dengan antarmuka yang responsif dan memudahkan pengelolaan ketersediaan lapangan.',
+      tags: ['Next.js', 'React', 'Tailwind CSS'],
+      image: null,
+      icon: Calendar,
+      featured: false,
+      github: 'https://github.com/mraflii/BookingFutsal',
       demo: '#'
     }
   ];
