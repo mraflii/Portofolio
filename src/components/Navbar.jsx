@@ -29,8 +29,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 pb-2 pointer-events-none">
       <div className={`pointer-events-auto transition-all duration-500 w-full max-w-5xl ${scrolled ? 'py-3 px-6 bg-[#050505]/60 backdrop-blur-xl border border-neutral-800/60 shadow-[0_4px_30px_rgba(0,0,0,0.5)] rounded-full' : 'py-4 px-6 bg-transparent border border-transparent rounded-full'}`}>
         <div className="flex justify-between items-center w-full">
-          <Link to="/" className="text-xl font-extrabold tracking-tighter text-white flex items-center gap-2 group">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 group-hover:scale-150 transition-transform duration-300"></span>
+          <Link to="/" className="text-xl font-extrabold tracking-tighter text-white group">
             rafli<span className="text-neutral-500 font-medium tracking-normal">.portofolio</span>
           </Link>
 

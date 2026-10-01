@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  SiReact, SiTailwindcss, SiPhp, SiMysql, SiPython, SiQgis
+  SiReact, SiTailwindcss, SiPhp, SiMysql, SiPython, SiQgis, SiNextdotjs
 } from 'react-icons/si';
 import { FaMicrosoft, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from 'react-icons/fa';
-import { Lightbulb, Users, Palette, ChevronDown } from 'lucide-react';
+import { Lightbulb, Users, Palette, ChevronDown, MessageSquare, Brain, Clock } from 'lucide-react';
 
 const Skills = () => {
   const [showAllSkills, setShowAllSkills] = useState(false);
 
   const hardSkills = [
+    { name: 'Next.js', icon: SiNextdotjs, color: 'text-white', hover: 'hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]' },
     { name: 'React', icon: SiReact, color: 'text-[#61DAFB]', hover: 'hover:shadow-[0_0_25px_rgba(97,218,251,0.15)]' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38B2AC]', hover: 'hover:shadow-[0_0_25px_rgba(56,178,172,0.15)]' },
     { name: 'PHP', icon: SiPhp, color: 'text-[#777BB4]', hover: 'hover:shadow-[0_0_25px_rgba(119,123,180,0.15)]' },
@@ -30,6 +31,9 @@ const Skills = () => {
   const softSkills = [
     { name: 'Problem Solving', icon: Lightbulb, color: 'text-amber-400', hover: 'hover:shadow-[0_0_25px_rgba(251,191,36,0.15)]' },
     { name: 'Teamwork', icon: Users, color: 'text-blue-400', hover: 'hover:shadow-[0_0_25px_rgba(96,165,250,0.15)]' },
+    { name: 'Communication', icon: MessageSquare, color: 'text-purple-400', hover: 'hover:shadow-[0_0_25px_rgba(192,132,252,0.15)]' },
+    { name: 'Critical Thinking', icon: Brain, color: 'text-emerald-400', hover: 'hover:shadow-[0_0_25px_rgba(52,211,153,0.15)]' },
+    { name: 'Time Management', icon: Clock, color: 'text-rose-400', hover: 'hover:shadow-[0_0_25px_rgba(251,113,133,0.15)]' },
   ];
 
   const SkillCard = ({ skill, index }) => (

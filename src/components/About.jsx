@@ -79,9 +79,18 @@ const About = () => {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-5">
                   <GraduationCap size={24} />
                 </div>
-                <h4 className="font-semibold text-white mb-1">Pendidikan</h4>
-                <h5 className="text-sm text-neutral-300 font-medium mb-2">Politeknik Negeri Lhokseumawe</h5>
-                <p className="text-xs text-neutral-500">D-IV Teknik Informatika<br/>(2022 - 2026)</p>
+                <h4 className="font-semibold text-white mb-4">Pendidikan</h4>
+                <div className="space-y-4">
+                  <div>
+                    <h5 className="text-sm text-neutral-300 font-medium">Politeknik Negeri Lhokseumawe</h5>
+                    <p className="text-xs text-neutral-500 mt-1">D-IV Teknik Informatika<br/>(2022 - 2026)</p>
+                  </div>
+                  <div className="w-full h-px bg-neutral-800/60"></div>
+                  <div>
+                    <h5 className="text-sm text-neutral-300 font-medium">SMK Negeri 1 Lhokseumawe</h5>
+                    <p className="text-xs text-neutral-500 mt-1">Teknik Komputer Jaringan<br/>(2018 - 2021)</p>
+                  </div>
+                </div>
               </div>
 
               <div className="p-6 rounded-3xl bg-neutral-900/30 border border-neutral-800/50 hover:bg-neutral-900/50 hover:border-neutral-700/50 transition-colors">

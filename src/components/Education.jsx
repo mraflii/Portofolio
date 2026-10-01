@@ -6,6 +6,21 @@ const Education = () => {
   const [previewPdf, setPreviewPdf] = useState(null);
   const [showAllCerts, setShowAllCerts] = useState(false);
 
+  const educations = [
+    {
+      period: "2022 - 2026",
+      school: "Politeknik Negeri Lhokseumawe",
+      degree: "D-IV Teknik Informatika",
+      description: "Mempelajari dasar-dasar ilmu komputer, pengembangan perangkat lunak, algoritma, serta penerapan teknologi informasi dalam pemecahan masalah. Aktif dalam berbagai proyek akademik dan praktikum."
+    },
+    {
+      period: "2018 - 2021",
+      school: "SMK Negeri 1 Lhokseumawe",
+      degree: "Teknik Komputer Jaringan",
+      description: "Mempelajari dasar-dasar keahlian teknis komputer, jaringan, dan pemrograman. Membangun fondasi awal yang kuat dalam bidang teknologi informasi sebelum melanjutkan ke perguruan tinggi."
+    }
+  ];
+
   const certifications = [
     { title: "Sertifikat Magang Industri", issuer: "Diskominsa Aceh • 2026", pdf: "/sertifikat-magang.pdf" },
     { title: "AWS Cloud Quest: Cloud Practitioner", issuer: "AWS Training & Certification • 2025", pdf: "/sertifikat-aws.pdf" },
@@ -44,28 +59,34 @@ const Education = () => {
         </motion.div>
 
         <div className="space-y-12">
-          {/* Education Card */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-8 md:p-10 rounded-3xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm relative overflow-hidden group hover:border-neutral-700/50 transition-colors"
-          >
-            <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-purple-500/0 via-purple-500/50 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="shrink-0 w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-                <GraduationCap size={32} />
-              </div>
-              <div className="flex-1">
-                <span className="inline-block text-purple-400 text-sm font-semibold tracking-wide mb-2 uppercase">2022 - 2026</span>
-                <h3 className="text-2xl font-bold text-white mb-2">Politeknik Negeri Lhokseumawe</h3>
-                <p className="text-lg text-neutral-300 mb-4 font-medium">D-IV Teknik Informatika</p>
-                <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
-                  Mempelajari dasar-dasar ilmu komputer, pengembangan perangkat lunak, algoritma, serta penerapan teknologi informasi dalam pemecahan masalah. Aktif dalam berbagai proyek akademik dan praktikum.
-                </p>
-              </div>
-            </div>
-          </motion.div>
+          {/* Education Cards */}
+          <div className="space-y-6">
+            {educations.map((edu, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-8 md:p-10 rounded-3xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm relative overflow-hidden group hover:border-neutral-700/50 transition-colors"
+              >
+                <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-purple-500/0 via-purple-500/50 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="shrink-0 w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                    <GraduationCap size={32} />
+                  </div>
+                  <div className="flex-1">
+                    <span className="inline-block text-purple-400 text-sm font-semibold tracking-wide mb-2 uppercase">{edu.period}</span>
+                    <h3 className="text-2xl font-bold text-white mb-2">{edu.school}</h3>
+                    <p className="text-lg text-neutral-300 mb-4 font-medium">{edu.degree}</p>
+                    <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                      {edu.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Certifications */}
           <div className="relative pt-8">

@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Map, Calendar, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Map, Calendar, ArrowUpRight, Camera } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 import spkImage from '../assets/spk_blankspot.png';
 import pemetaanImage from '../assets/pemetaan_blankspot.png';
 import bookingFutsalImage from '../assets/bookingfutsal.png';
+import manajemenRestoranImage from '../assets/manajemen_restoran.png';
 
 const Projects = () => {
   const projects = [
@@ -37,6 +38,16 @@ const Projects = () => {
       github: 'https://github.com/mraflii/BookingFutsal',
       glowColor: 'group-hover:shadow-[0_0_40px_rgba(234,179,8,0.15)]',
       accentColor: 'text-amber-400',
+    },
+    {
+      title: 'Manajemen Restoran dengan Face Recognition',
+      description: 'Sistem manajemen restoran modern yang mengintegrasikan teknologi pengenalan wajah (face recognition) untuk autentikasi dan efisiensi operasional. Memudahkan proses pencatatan dan keamanan akses secara cerdas.',
+      tags: ['Python', 'OpenCV', 'Face Recognition', 'MySQL'],
+      image: manajemenRestoranImage,
+      icon: Camera,
+      github: 'https://github.com/Dimas391/manajemen_restoran_menggunakan_face_recornation',
+      glowColor: 'group-hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]',
+      accentColor: 'text-purple-400',
     }
   ];
 
