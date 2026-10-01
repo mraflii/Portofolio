@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Map, Calendar } from 'lucide-react';
+import { ExternalLink, Map, Calendar, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 import spkImage from '../assets/spk_blankspot.png';
@@ -14,9 +14,9 @@ const Projects = () => {
       tags: ['PHP', 'MySQL', 'QGIS', 'Python', 'Javascript', 'CSS', 'GeoJSON'],
       image: spkImage,
       icon: Map,
-      featured: true,
       github: 'https://github.com/mraflii/SPK-Penangan-Desa-Blankspot-Akses-Internet-di-Aceh',
-      demo: '#'
+      glowColor: 'group-hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]',
+      accentColor: 'text-emerald-400',
     },
     {
       title: 'Pemetaan Blankspot Pendidikan & Kesehatan',
@@ -24,9 +24,9 @@ const Projects = () => {
       tags: ['PHP', 'MySQL', 'Leaflet.js', 'GeoJSON', 'Javascript', 'CSS'],
       image: pemetaanImage,
       icon: Map,
-      featured: false,
       github: 'https://github.com/mraflii/Pemetaan-Lokasi-Blankspot-di-Sektor-Pendidikan-dan-Kesehatan-Wilayah-Aceh',
-      demo: '#'
+      glowColor: 'group-hover:shadow-[0_0_40px_rgba(6,182,212,0.15)]',
+      accentColor: 'text-cyan-400',
     },
     {
       title: 'Booking/Pemesanan Futsal',
@@ -34,25 +34,39 @@ const Projects = () => {
       tags: ['Next.js', 'React', 'Tailwind CSS'],
       image: bookingFutsalImage,
       icon: Calendar,
-      featured: false,
       github: 'https://github.com/mraflii/BookingFutsal',
-      demo: '#'
+      glowColor: 'group-hover:shadow-[0_0_40px_rgba(234,179,8,0.15)]',
+      accentColor: 'text-amber-400',
     }
   ];
 
   return (
-    <section id="projects" className="py-12 px-6 md:px-12 relative max-w-7xl mx-auto w-full">
-      <div className="w-full border-t border-neutral-900 pt-10">
+    <section id="projects" className="py-16 px-6 md:px-12 relative max-w-7xl mx-auto w-full min-h-[85vh] overflow-hidden">
+      {/* Background Decorative */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+      <div className="w-full">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Project Utama</h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 text-xs font-medium mb-6 tracking-wide uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            Karya Utama
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+            Proyek <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Pilihan</span>.
+          </h2>
+          <p className="text-neutral-400 text-lg md:text-xl leading-relaxed">
+            Berbagai inovasi perangkat lunak yang telah saya rancang dan kembangkan, berfokus pada solusi praktis dan performa optimal.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -60,36 +74,42 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-[#050505] border border-neutral-900 hover:border-neutral-700 transition-colors flex flex-col h-full rounded-md overflow-hidden"
+              className={`group flex flex-col h-full bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm rounded-3xl overflow-hidden hover:bg-neutral-900/50 hover:border-neutral-700/50 transition-all duration-500 ${project.glowColor}`}
             >
-              {/* Project Image/Icon Area */}
-              <div className="w-full bg-neutral-950 relative h-[200px] flex items-center justify-center border-b border-neutral-900 overflow-hidden">
+              {/* Project Image */}
+              <div className="w-full relative h-[220px] overflow-hidden bg-neutral-950">
                 {project.image ? (
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out opacity-80 group-hover:opacity-100" />
                 ) : (
-                  <project.icon className="text-neutral-700 w-16 h-16 group-hover:scale-110 group-hover:text-neutral-500 transition-all duration-500" />
+                  <div className="w-full h-full flex items-center justify-center">
+                    <project.icon className="text-neutral-800 w-20 h-20 group-hover:scale-110 transition-all duration-700" />
+                  </div>
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80"></div>
+                <div className={`absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 ${project.accentColor} opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300`}>
+                  <ArrowUpRight size={20} />
+                </div>
               </div>
 
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3 leading-snug">{project.title}</h3>
+              {/* Content */}
+              <div className="p-8 flex flex-col flex-grow relative z-10 -mt-6">
+                <h3 className="text-xl font-bold text-white mb-4 leading-snug group-hover:text-neutral-200 transition-colors">{project.title}</h3>
                 <p className="text-neutral-400 text-sm leading-relaxed mb-6 flex-grow">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {project.tags.map(tag => (
-                    <span key={tag} className="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-[11px] font-medium text-neutral-300 rounded-sm">
+                    <span key={tag} className="px-3 py-1 bg-neutral-950/50 border border-neutral-800/60 text-xs font-medium text-neutral-300 rounded-lg">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-neutral-900 mt-auto">
-                  <a href={project.github} className="flex items-center gap-2 text-xs font-medium text-neutral-400 hover:text-white transition-colors">
-                    <FaGithub size={16} />
-                    Source Code
+                <div className="pt-5 border-t border-neutral-800/50 mt-auto">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3 bg-[#050505] border border-neutral-800 rounded-xl text-sm font-medium text-neutral-300 hover:text-white hover:border-neutral-700 transition-all cursor-pointer">
+                    <FaGithub size={18} />
+                    Lihat Source Code
                   </a>
                 </div>
               </div>

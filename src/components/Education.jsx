@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { GraduationCap, Award, ExternalLink, ChevronDown } from 'lucide-react';
 
 const Education = () => {
   const [previewPdf, setPreviewPdf] = useState(null);
@@ -15,117 +15,140 @@ const Education = () => {
     { title: "Pelatihan Softskill", issuer: "Politeknik Negeri Lhokseumawe • 2026", pdf: "/sertifikat-softskill.pdf" },
   ];
 
-  const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 3);
+  const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 4);
 
   return (
-    <section id="education" className="py-12 px-6 md:px-12 relative max-w-7xl mx-auto w-full">
-      <div className="w-full border-t border-neutral-900 pt-10">
+    <section id="education" className="py-16 px-6 md:px-12 relative max-w-7xl mx-auto w-full min-h-[85vh] overflow-hidden">
+      {/* Background Decorative */}
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      <div className="absolute bottom-1/3 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+      <div className="w-full">
+        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Pendidikan & Sertifikasi</h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400 text-xs font-medium mb-6 tracking-wide uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+            Pendidikan & Sertifikasi
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
+            Latar Belakang <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Akademik</span>.
+          </h2>
+          <p className="mt-4 text-neutral-400 text-lg leading-relaxed">
+            Perjalanan pendidikan formal dan pencapaian sertifikasi profesional saya dalam dunia teknologi.
+          </p>
         </motion.div>
 
-        <div className="space-y-6">
-          {/* Education */}
+        <div className="space-y-12">
+          {/* Education Card */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row border border-neutral-900 bg-[#050505]"
+            className="p-8 md:p-10 rounded-3xl bg-neutral-900/30 border border-neutral-800/50 backdrop-blur-sm relative overflow-hidden group hover:border-neutral-700/50 transition-colors"
           >
-            <div className="md:w-1/4 p-6 border-b md:border-b-0 md:border-r border-neutral-900 flex flex-col justify-center bg-neutral-950">
-              <div className="flex items-center gap-3">
-                <GraduationCap size={24} className="text-neutral-500" />
-                <span className="text-sm font-medium text-neutral-400">Pendidikan</span>
+            <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-purple-500/0 via-purple-500/50 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="shrink-0 w-16 h-16 rounded-2xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                <GraduationCap size={32} />
               </div>
-            </div>
-            
-            <div className="md:w-3/4 p-6 md:p-8">
-              <span className="inline-block text-neutral-500 text-sm font-medium tracking-wide mb-2">2022 - 2026</span>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Politeknik Negeri Lhokseumawe</h3>
-              <p className="text-base text-neutral-400 mb-3">Jurusan Teknologi Informasi dan Komputer, Program Studi Teknik Informatika</p>
-              <p className="text-neutral-500 leading-relaxed text-sm md:text-base">
-                Mempelajari dasar-dasar ilmu komputer, pengembangan perangkat lunak, algoritma, serta penerapan teknologi informasi dalam pemecahan masalah. Aktif dalam berbagai proyek akademik dan praktikum.
-              </p>
+              <div className="flex-1">
+                <span className="inline-block text-purple-400 text-sm font-semibold tracking-wide mb-2 uppercase">2022 - 2026</span>
+                <h3 className="text-2xl font-bold text-white mb-2">Politeknik Negeri Lhokseumawe</h3>
+                <p className="text-lg text-neutral-300 mb-4 font-medium">D-IV Teknik Informatika</p>
+                <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                  Mempelajari dasar-dasar ilmu komputer, pengembangan perangkat lunak, algoritma, serta penerapan teknologi informasi dalam pemecahan masalah. Aktif dalam berbagai proyek akademik dan praktikum.
+                </p>
+              </div>
             </div>
           </motion.div>
 
           {/* Certifications */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row border border-neutral-900 bg-[#050505]"
-          >
-            <div className="md:w-1/4 p-6 border-b md:border-b-0 md:border-r border-neutral-900 flex flex-col justify-center bg-neutral-950">
-              <div className="flex items-center gap-3">
-                <Award size={24} className="text-neutral-500" />
-                <span className="text-sm font-medium text-neutral-400">Sertifikasi</span>
-              </div>
-            </div>
+          <div className="relative pt-8">
+            <h3 className="text-xl font-bold text-white mb-8 flex items-center justify-center gap-3">
+              <span className="h-px w-12 bg-gradient-to-r from-transparent to-neutral-700"></span>
+              Sertifikasi
+              <span className="h-px w-12 bg-gradient-to-l from-transparent to-neutral-700"></span>
+            </h3>
             
-            <div className="md:w-3/4 p-6 md:p-8">
-              <ul className="space-y-6">
-                {displayedCerts.map((cert, index) => (
-                  <motion.li 
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-neutral-900 pb-4 last:border-0 last:pb-0 gap-4"
-                  >
-                    <div>
-                      <h4 className="font-semibold text-white text-base">{cert.title}</h4>
-                      <p className="text-sm mt-1 text-neutral-500">{cert.issuer}</p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {displayedCerts.map((cert, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="p-6 rounded-3xl bg-neutral-900/20 border border-neutral-800/50 hover:bg-neutral-900/40 hover:border-blue-500/30 transition-all duration-300 flex flex-col h-full group"
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="shrink-0 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform duration-300">
+                      <Award size={24} />
                     </div>
-                    <button onClick={() => setPreviewPdf(cert.pdf)} className="flex items-center gap-2 text-xs font-medium px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white rounded border border-neutral-800 transition-colors shrink-0 w-fit cursor-pointer">
-                      Preview Sertifikat <ExternalLink size={14} />
+                    <div>
+                      <h4 className="font-bold text-white text-base md:text-lg leading-snug group-hover:text-blue-300 transition-colors">{cert.title}</h4>
+                      <p className="text-sm mt-2 text-neutral-500 font-medium">{cert.issuer}</p>
+                    </div>
+                  </div>
+                  <div className="mt-auto pt-4 border-t border-neutral-800/50">
+                    <button 
+                      onClick={() => setPreviewPdf(cert.pdf)} 
+                      className="w-full flex items-center justify-center gap-2 text-sm font-medium px-4 py-2.5 bg-[#050505] hover:bg-neutral-800 text-neutral-300 hover:text-white rounded-xl border border-neutral-800 hover:border-neutral-700 transition-all duration-300 cursor-pointer"
+                    >
+                      Lihat Dokumen <ExternalLink size={16} className="text-blue-400" />
                     </button>
-                  </motion.li>
-                ))}
-              </ul>
-              
-              {certifications.length > 3 && (
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {certifications.length > 4 && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-10 flex justify-center"
+              >
                 <button
                   onClick={() => setShowAllCerts(!showAllCerts)}
-                  className="w-full mt-6 py-2.5 flex items-center justify-center gap-2 text-sm font-medium text-neutral-400 hover:text-white bg-neutral-900/40 hover:bg-neutral-900 rounded-lg border border-neutral-800/60 transition-colors cursor-pointer"
+                  className="group flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900/50 border border-neutral-800 text-sm font-medium text-neutral-300 hover:text-white hover:bg-neutral-800 hover:border-neutral-700 transition-all duration-300"
                 >
-                  {showAllCerts ? (
-                    <>Tutup <ChevronUp size={16} /></>
-                  ) : (
-                    <>Lihat Selengkapnya <ChevronDown size={16} /></>
-                  )}
+                  {showAllCerts ? 'Tutup' : 'Lihat Semua Sertifikasi'}
+                  <div className={`transition-transform duration-300 ${showAllCerts ? 'rotate-180' : 'group-hover:translate-y-1'}`}>
+                    <ChevronDown size={16} />
+                  </div>
                 </button>
-              )}
-            </div>
-          </motion.div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Modal Preview PDF */}
       {previewPdf && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" onClick={() => setPreviewPdf(null)}>
-          <div className="relative w-full max-w-4xl h-[85vh] bg-[#050505] border border-neutral-800 rounded-lg overflow-hidden flex flex-col shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="flex justify-between items-center p-4 border-b border-neutral-900 bg-neutral-950">
-              <h3 className="text-white font-medium flex items-center gap-2">
-                <Award size={18} className="text-neutral-500" />
-                Preview Sertifikat
+          <div className="relative w-full max-w-4xl h-[85vh] bg-[#050505] border border-neutral-800 rounded-2xl overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.5)]" onClick={e => e.stopPropagation()}>
+            <div className="flex justify-between items-center p-5 border-b border-neutral-900 bg-neutral-950/80 backdrop-blur-md">
+              <h3 className="text-white font-medium flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                  <Award size={16} />
+                </div>
+                Pratinjau Sertifikat
               </h3>
               <button 
                 onClick={() => setPreviewPdf(null)} 
-                className="text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 px-3 py-1 rounded border border-neutral-800 transition-colors text-sm cursor-pointer"
+                className="text-neutral-400 hover:text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 rounded-lg border border-neutral-800 hover:border-red-500/50 transition-all text-sm font-medium cursor-pointer"
               >
                 Tutup
               </button>
             </div>
-            <div className="flex-grow w-full bg-neutral-900">
+            <div className="flex-grow w-full bg-neutral-900 p-2">
               <iframe 
                 src={`${previewPdf}#toolbar=0`} 
-                className="w-full h-full border-none" 
+                className="w-full h-full border border-neutral-800 rounded-xl bg-white" 
                 title="Sertifikat Preview"
               />
             </div>
