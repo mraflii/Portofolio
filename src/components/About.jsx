@@ -24,7 +24,7 @@ const About = () => {
           >
             <div>
               <p className="text-neutral-400 leading-relaxed text-base md:text-lg">
-                Saya adalah lulusan Teknik Informatika dari Politeknik Negeri Lhokseumawe yang memiliki minat dan keahlian di bidang Web Development, Database, Geographic Information System (GIS), dan Sistem Pendukung Keputusan (Decision Support System). Saya terbiasa mengembangkan aplikasi berbasis web mulai dari perancangan basis data, pengolahan data, hingga visualisasi informasi yang interaktif.
+                Saya adalah lulusan Teknik Informatika dari Politeknik Negeri Lhokseumawe yang memiliki minat dan keahlian di bidang Web Development, Database, dan Geographic Information System (GIS). Saya terbiasa mengembangkan aplikasi berbasis web mulai dari perancangan basis data, pengolahan data, hingga visualisasi informasi yang interaktif.
               </p>
               <br />
               <p className="text-neutral-400 leading-relaxed text-base md:text-lg">

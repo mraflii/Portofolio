@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   SiReact, 
@@ -8,9 +9,11 @@ import {
   SiQgis
 } from 'react-icons/si';
 import { FaMicrosoft, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from 'react-icons/fa';
-import { Lightbulb, Users, Palette } from 'lucide-react';
+import { Lightbulb, Users, Palette, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Skills = () => {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+
   const hardSkills = [
     { name: 'React', icon: SiReact, color: 'text-[#61DAFB]' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-[#38B2AC]' },
@@ -72,10 +75,22 @@ const Skills = () => {
               Hard Skills
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {hardSkills.map((skill, index) => (
+              {(showAllSkills ? hardSkills : hardSkills.slice(0, 6)).map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </div>
+            {hardSkills.length > 6 && (
+              <button
+                onClick={() => setShowAllSkills(!showAllSkills)}
+                className="w-full mt-6 py-2.5 flex items-center justify-center gap-2 text-sm font-medium text-neutral-400 hover:text-white bg-neutral-900/40 hover:bg-neutral-900 rounded-lg border border-neutral-800/60 transition-colors cursor-pointer"
+              >
+                {showAllSkills ? (
+                  <>Tutup <ChevronUp size={16} /></>
+                ) : (
+                  <>Lihat Semua Hard Skills <ChevronDown size={16} /></>
+                )}
+              </button>
+            )}
           </div>
 
           {/* Soft Skills */}

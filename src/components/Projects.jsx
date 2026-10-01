@@ -29,7 +29,7 @@ const Projects = () => {
       demo: '#'
     },
     {
-      title: 'Aplikasi Booking Futsal',
+      title: 'Booking/Pemesanan Futsal',
       description: 'Aplikasi berbasis web untuk memudahkan pengguna dalam melakukan pemesanan lapangan futsal. Dilengkapi dengan antarmuka yang responsif dan memudahkan pengelolaan ketersediaan lapangan.',
       tags: ['Next.js', 'React', 'Tailwind CSS'],
       image: bookingFutsalImage,
